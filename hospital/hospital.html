@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospitals/Pharnacies Nearby</title>
+    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApD5vFlvR4z60yOFRPB8mWtnh1e1N319Q&callback=initMap&libraries=places&v=weekly"
+    defer
+  ></script>
+    <link rel="stylesheet" type="text/css" href="newh.css"/>
+    <script src="hospital.js"></script>
+    <style></style>
+  </head>
+  <body>
+    <header>
+      <div class="navbar-fixed ">
+       <nav class="nav-wrapper blue">
+           <div class="container">
+            <a href="index.html"><img src="testing.jpg" title="First Response" width="65px" height="65px"/></a>
+               <a href="#" data-target="mobile-links" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+               <ul id="nav-mobile" class="right hide-on-med-and-down">
+                   <li><a class="white-text text-darken-4" href="index.html">Home</a> </li>
+                   <li><a class="white-text text-darken-4" href="About.html">About Us</a> </li>
+                   <li><a class="white-text text-darken-4" href="hospital/hospital.html">Hospitals Nearby</a> </li>
+                   <!-- <li><a class="white-text text-darken-4" href="#foot">About</a> </li> -->
+                   
+               </ul>
+           </div>
+           
+       </nav>
+   </div>
+   </header> <br/>
+   
+   <ul class="sidenav" id="mobile-links">
+       <li><a class="black-text text-darken-4" href="index.html">Home</a> </li>
+       <li><a class="black-text text-darken-4" href="About.html">About Us</a> </li>
+       <li><a class="black-text text-darken-4" href="hospital/hospital.html">Hospitals Nearby</a> </li>
+                       
+   </ul> 
+
+    <div class="hospital-search">
+      <div id="findhospital"> Find Hospitals/Pharmacies in:</div>
+
+      <div id="locationField">
+        <input id="autocomplete" placeholder="Enter your location" type="text" />
+      </div>
+
+      <div id="controls">
+        <select id="country">
+          <option value="all">All</option>
+          <option value="au">Australia</option>
+          <option value="br">Brazil</option>
+          <option value="ca">Canada</option>
+          <option value="fr">France</option>
+          <option value="de">Germany</option>
+          <option value="mx">Mexico</option>
+          <option value="nz">New Zealand</option>
+          <option value="it">Italy</option>
+          <option value="za">South Africa</option>
+          <option value="es">Spain</option>
+          <option value="pt">Portugal</option>
+          <option value="ng" selected>Nigeria</option>
+          <option value="uk">United Kingdom</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="map"></div>
+
+    <div id="listing">
+      <table id="resultsTable">
+        <tbody id="results"></tbody>
+      </table>
+    </div>
+
+    <div style="display: none">
+      <div id="info-content">
+        <table>
+          <tr id="iw-url-row" class="iw_table_row">
+            <td id="iw-icon" class="iw_table_icon"></td>
+            <td id="iw-url"></td>
+          </tr>
+          <tr id="iw-address-row" class="iw_table_row">
+            <td class="iw_attribute_name">Address:</td>
+            <td id="iw-address"></td>
+          </tr>
+          <tr id="iw-phone-row" class="iw_table_row">
+            <td class="iw_attribute_name">Telephone:</td>
+            <td id="iw-phone"></td>
+          </tr>
+          <tr id="iw-rating-row" class="iw_table_row">
+            <td class="iw_attribute_name">Rating:</td>
+            <td id="iw-rating"></td>
+          </tr>
+          <tr id="iw-website-row" class="iw_table_row">
+            <td class="iw_attribute_name">Website:</td>
+            <td id="iw-website"></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <footer class="page-footer white-text blue">
+      <div class="container">
+      <div class="row">
+          <div class="col m12 s12 l6">
+              <h5>Emergency & Important Numbers:</h5>
+              <p>(Nigeria)</p>
+              <ul>
+                      <li> Ambulance - 112 or 199</li>
+                      <li>Fire - 112 or 199</li>
+                      <li>Police - 112 or 199</li>
+              </ul>
+          </div>
+          <div class="col m12 s12 l6">
+              <ul>
+                  <li>
+                      <a class="waves-effect waves-light btn-floating social google"><i class="fa fa-google"></i></a>
+                  </li>
+                  <li>
+                      <a class="waves-effect waves-light btn-floating facebook"><i class="fa fa-facebook"></i></a>
+                  </li>
+                  <li>
+                      <a class="waves-effect waves-light btn-floating twitter"><i class="fa fa-twitter  "></i></a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+      <div class="footer-copyright center">
+          
+          <p style="text-align: center;">Designed by Team Pervigeo for <a class="black-text" href="https://pearlsafrica.org"> Pearls Africa</a></p>
+         
+      </div>   
+      </div>
+  </footer> 
+  </footer>     
+  <script src="ASSETS/js/jquery.js"></script>
+          
+          <!--Compiled and minified Javascript-->
+          <script src="ASSETS/js/materialize.min.js"></script>    
+          <script>
+              $(document).ready(function(){
+                  $('.sidenav').sidenav();
+  
+                  // $(".activator").click(function(){
+                  //     $(".card").slideToggle();
+                  //     });
+                 
+              });
+          </script>
+        
+          
+  </body>
+  </html>
+    <script src="ASSETS/js/materialize/min.js"></script>
+  </body>
+</html>
